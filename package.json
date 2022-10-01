@@ -3,8 +3,9 @@
   "version": "0.0.1",
   "description": "Portfolio creado para el parcial 1 de Aplicaciones Híbridas.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "cls && nodemon express.js"
   },
   "author": "Mathias Cianni",
   "license": "ISC",
