@@ -91,6 +91,17 @@ function editProject(req, res){
         })
 }
 
+// * Cambiar estado de publicación
+function switchStatus(req, res){
+    const id = req.params.projectID;
+    const published = eval(req.body.publish);
+
+    ProjectsServices.changeStatus(id, published)
+    .then(() => {
+        res.redirect("/admin/projects");
+    })
+}
+
 export {
     viewAll,
     createProject,
@@ -99,4 +110,5 @@ export {
     deleteProject,
     confirmEditProject,
     editProject,
+    switchStatus
 }

@@ -1,24 +1,14 @@
-<tr>
-    <td>
-        <%= project.name %>
+<tr class="bg-white border-b">
+    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"><img src="public/img/<%= project.img %>.jpg" alt="Miniatura del proyecto: <%= project.name %>" /></td>
+    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><%= project.name %></td>
+    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"><%= project.description %></td>
+    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"><a href="<%= project.link %>" target="_blank"><%= project.link %></td>
+    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+        <form action="/admin/projects/<%= project._id %>/publish" method="post">
+            <input type="hidden" value="<%= project.public %>" name="publish">
+            <button type="submit" class="bg-gray-700 text-white px-2 py-1"><%= project.public? "Público" : "Privado" %></button>
+        </form>
     </td>
-    <td>
-        <%= project.description %>
-    </td>
-    <td>
-        <a href="<%= project.link %>" target="_blank"><%= project.link %></a>
-    </td>
-    <td>
-        <img src="public/img/<%= project.img %>.jpg" alt="Miniatura del proyecto: <%= project.name %>">
-    </td>
-    <td>
-        <%= project.public ? "Público" : "Privado" %>
-    </td>
-    <td>
-        <a href="/admin/projects/<%= project._id %>/edit">Editar</a>
-    </td>
-    <td>
-        <a href="/admin/projects/<%= project._id %>/delete">Eliminar</a>
-    </td>
-    <!-- TODO hacer el switch del estado de publicación -->
+    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"><a href="/admin/projects/<%= project._id %>/edit" class="text-cyan-500">Editar</a></td>
+    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"><a href="/admin/projects/<%= project._id %>/delete" class="text-red-600">Eliminar</a></td>
 </tr>

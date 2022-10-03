@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio | Mathias Cianni</title>
-</head>
-
-<body>
-    <%- include('../common/navbar') %>
-        <main>
-            <h1>¡La acción se realizó con éxito!</h1>
-            <p>
-                <%- message %>
-            </p>
-        </main>
-    <%- include('../common/footer') %>
-</body>
-
-</html>
+<%- include('../common/htmlTop', { title: "La acción se realizó con éxito" }) %>
+    <h1>¡La acción se realizó con éxito!</h1>
+    <p><%- message %></p>
+<%- include('../common/htmlBot') %>

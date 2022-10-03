@@ -53,10 +53,20 @@ async function setProjectChanges(id, project) {
         })
 }
 
+//Edita el estado de publicación
+
+async function changeStatus(id, published){
+    return client.connect()
+    .then(() => {
+        return db.collection("Projects").updateOne({ _id: new ObjectId(id)}, { "$set": { public: !published }});
+    })
+}
+
 export {
     getProjects,
     getProjectsByID,
     setNewProject,
     deleteProjectByID,
     setProjectChanges,
+    changeStatus,
 }

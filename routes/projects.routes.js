@@ -22,6 +22,8 @@ route.route("/admin/projects/:projectID/edit")
     .get(AdminProjectsController.confirmEditProject)
     .post(AdminProjectsController.editProject);
 
+route.post("/admin/projects/:projectID/publish", AdminProjectsController.switchStatus);
+
 // * No admin :(
 route.get("/projects", ProjectsController.viewAll);
 route.get("/projects/:projectID", ProjectsController.viewById);

@@ -1,16 +1,30 @@
 <%- include('../../common/htmlTop', { title: "Administrar proyectos" }) %>
     <h1>Administrar proyectos</h1>
     <a href="/admin/projects/new">Crear un nuevo proyecto</a>
-    <table>
-        <tr>
-            <th>Nombre</th>
-            <th>Descripción</th>
-            <th>Link</th>
-            <th>Imagen</th>
-            <th>Estado</th>
-        </tr>
-        <% projects.map((project)=>{%>
-            <%- include('./adminProjectList', { project }) %>
-        <% }) %>
-    </table>
+    <div class="flex flex-col">
+        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div class="py-4 inline-block min-w-full sm:px-6 lg:px-8">
+            <div class="overflow-hidden">
+              <table class="min-w-full text-center">
+                <thead class="border-b bg-gray-800">
+                  <tr>
+                    <th scope="col" class="text-sm font-medium text-white px-6 py-4">Imagen</th>
+                    <th scope="col" class="text-sm font-medium text-white px-6 py-4">Nombre</th>
+                    <th scope="col" class="text-sm font-medium text-white px-6 py-4">Descripción</th>
+                    <th scope="col" class="text-sm font-medium text-white px-6 py-4">Link</th>
+                    <th scope="col" class="text-sm font-medium text-white px-6 py-4">Estado</th>
+                    <th scope="col" class="text-sm font-medium text-white px-6 py-4"></th>
+                    <th scope="col" class="text-sm font-medium text-white px-6 py-4"></th>
+                  </tr>
+                </thead class="border-b">
+                <tbody>
+                    <% projects.map((project)=>{%>
+                        <%- include('./adminProjectList', { project }) %>
+                    <% }) %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
 <%- include('../../common/htmlBot') %>

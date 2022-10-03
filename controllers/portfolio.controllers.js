@@ -1,7 +1,6 @@
 // import * as PortfolioServices from "../services/portfolio.services.js";
 
 function viewHome(req, res){
-    console.log(res);
     res.render("portfolio/home");
 }
 
