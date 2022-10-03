@@ -1,0 +1,7 @@
+<%- include('../../common/htmlTop', { title: "Eliminar proyecto" }) %>
+    <h1>¿Estás seguro que querés eliminar el proyecto: <%= project.name %>
+    </h1>
+    <form action="/admin/projects/<%= project._id %>/delete" method="post">
+        <button type="submit">Sí, eliminar</button>
+    </form>
+<%- include('../../common/htmlBot') %>

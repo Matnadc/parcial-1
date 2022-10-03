@@ -1,0 +1,24 @@
+<tr>
+    <td>
+        <%= project.name %>
+    </td>
+    <td>
+        <%= project.description %>
+    </td>
+    <td>
+        <a href="<%= project.link %>" target="_blank"><%= project.link %></a>
+    </td>
+    <td>
+        <img src="public/img/<%= project.img %>.jpg" alt="Miniatura del proyecto: <%= project.name %>">
+    </td>
+    <td>
+        <%= project.public ? "Público" : "Privado" %>
+    </td>
+    <td>
+        <a href="/admin/projects/<%= project._id %>/edit">Editar</a>
+    </td>
+    <td>
+        <a href="/admin/projects/<%= project._id %>/delete">Eliminar</a>
+    </td>
+    <!-- TODO hacer el switch del estado de publicación -->
+</tr>

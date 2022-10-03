@@ -1,0 +1,48 @@
+<% 
+    let action, title;
+
+    if(project?._id){
+        action = `/admin/projects/${project._id}/edit`;
+        title = `Editar proyecto ${project.name}`;
+    } else {
+        action = `/admin/projects/new`;
+        title = `Crear nuevo proyecto`;
+    }
+%> 
+
+<%- include('../../common/htmlTop', { title: title }) %>
+    <h1>Crear nuevo proyecto</h1>
+    <form action="<%= action %> " method="post" enctype="application/x-www-form-urlencoded">
+        <div>
+            <label for="name">Nombre del proyecto</label>
+            <input type="text" name="name" id="name" placeholder="Nombre del proyecto" value="<%= project.name %>"
+                required>
+        </div>
+
+        <div>
+            <label for="desc">Descripción del proyecto</label>
+            <textarea name="desc" id="desc" placeholder="Descripción del proyecto"
+                required><%= project.description %></textarea>
+        </div>
+
+        <div>
+            <label for="link">Link al proyecto</label>
+            <input type="text" name="link" id="link" placeholder="Link al proyecto" value="<%= project.link %>"
+                required>
+        </div>
+
+        <div>
+            <label for="img">Imagen del proyecto</label>
+            <input type="text" name="img" id="img" placeholder="Imagen del proyecto" value="<%= project.img %>"
+                required>
+        </div>
+
+        <div>
+            <label for="true">Público</label>
+            <input type="radio" value="true" name="status" id="true" <%= project?._id ? (project.public ? "checked" : "") : "checked" %> >
+            <label for="false">Privado</label>
+            <input type="radio" value="false" name="status" id="false" <%= project?._id ? (project.public ? "" : "checked") : "" %> >
+        </div>
+        <button type="submit"><%= project?._id ? "Editar" : "Crear" %></button>
+    </form>
+<%- include('../../common/htmlBot') %>

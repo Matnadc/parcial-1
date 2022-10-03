@@ -1,0 +1,16 @@
+<%- include('../../common/htmlTop', { title: "Administrar proyectos" }) %>
+    <h1>Administrar proyectos</h1>
+    <a href="/admin/projects/new">Crear un nuevo proyecto</a>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Link</th>
+            <th>Imagen</th>
+            <th>Estado</th>
+        </tr>
+        <% projects.map((project)=>{%>
+            <%- include('./adminProjectList', { project }) %>
+        <% }) %>
+    </table>
+<%- include('../../common/htmlBot') %>

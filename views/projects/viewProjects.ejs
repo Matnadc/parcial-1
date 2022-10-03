@@ -1,0 +1,15 @@
+<%- include('../common/htmlTop', { title: "Mis proyectos" }) %>
+    <h1>Proyectos</h1>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Link</th>
+            <th></th>
+        </tr>
+        <% projects.map((project)=>{%>
+            <% if(project.public){ %>
+                <%- include('./projectList', { project }) %>
+            <% } %>
+        <% }) %>
+    </table>
+<%- include('../common/htmlBot') %>
