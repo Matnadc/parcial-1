@@ -1,15 +1,28 @@
-<%- include('../common/htmlTop', { title: "Mis proyectos" }) %>
-    <h1>Proyectos</h1>
-    <table>
-        <tr>
-            <th>Nombre</th>
-            <th>Link</th>
-            <th></th>
-        </tr>
-        <% projects.map((project)=>{%>
-            <% if(project.public){ %>
-                <%- include('./projectList', { project }) %>
-            <% } %>
-        <% }) %>
-    </table>
+<%- include('../common/htmlTop', { title: "Administrar proyectos" }) %>
+  <h1 class="font-bold text-xl mb-8">Proyectos</h1>
+  <div class="flex flex-col mt-4">
+    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="py-4 inline-block min-w-full sm:px-6 lg:px-8">
+        <div class="overflow-hidden">
+          <table class="min-w-full text-center">
+            <thead class="border-b bg-gray-800">
+              <tr>
+                <th scope="col" class="text-sm font-medium text-white px-6 py-4">Imagen</th>
+                <th scope="col" class="text-sm font-medium text-white px-6 py-4">Nombre</th>
+                <th scope="col" class="text-sm font-medium text-white px-6 py-4">Descripción</th>
+                <th scope="col" class="text-sm font-medium text-white px-6 py-4">Link</th>
+              </tr>
+            </thead class="border-b">
+            <tbody>
+              <% projects.map((project)=>{%>
+                <% if (project.public) { %>                
+                    <%- include('./projectList', { project }) %>
+                <% } %>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 <%- include('../common/htmlBot') %>

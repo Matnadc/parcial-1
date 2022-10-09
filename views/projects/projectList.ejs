@@ -1,11 +1,6 @@
-<tr>
-    <td>
-        <%= project.name %>
-    </td>
-    <td>
-        <a href="<%= project.link %>" target="_blank"><%= project.name.toLowerCase() %>.com</a>
-    </td>
-    <td>
-        <a href="/projects/<%= project._id %>">Ver más</a>
-    </td>
+<tr class="bg-white border-b">
+    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"><img src="<%= project.img %>" alt="Miniatura del proyecto: <%= project.name %>" /></td>
+    <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900"><%= project.name %></td>
+    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"><%= project.description %></td>
+    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"><a href="<%= project.link %>" target="_blank" class="underline text-blue-600 hover:text-blue-800"><%= project.link %></td>
 </tr>

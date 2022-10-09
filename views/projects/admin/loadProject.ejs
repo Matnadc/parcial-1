@@ -11,38 +11,43 @@
 %> 
 
 <%- include('../../common/htmlTop', { title: title }) %>
-    <h1>Crear nuevo proyecto</h1>
+    <h1 class="text-xl mb-8 font-bold "><%= title %></h1>
     <form action="<%= action %> " method="post" enctype="application/x-www-form-urlencoded">
-        <div>
-            <label for="name">Nombre del proyecto</label>
+        <div class="mb-4">
+            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nombre del proyecto</label>
             <input type="text" name="name" id="name" placeholder="Nombre del proyecto" value="<%= project.name %>"
-                required>
+                required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
         </div>
 
-        <div>
-            <label for="desc">Descripción del proyecto</label>
+        <div class="mb-4">
+            <label for="desc" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Descripción del proyecto</label>
             <textarea name="desc" id="desc" placeholder="Descripción del proyecto"
-                required><%= project.description %></textarea>
+                required class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"><%= project.description %></textarea>
         </div>
 
-        <div>
-            <label for="link">Link al proyecto</label>
+        <div class="mb-4">
+            <label for="link" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Link al proyecto</label>
             <input type="text" name="link" id="link" placeholder="Link al proyecto" value="<%= project.link %>"
-                required>
+                required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
         </div>
 
-        <div>
-            <label for="img">Imagen del proyecto</label>
+        <div class="mb-4">
+            <label for="img" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Imagen del proyecto</label>
             <input type="text" name="img" id="img" placeholder="Imagen del proyecto" value="<%= project.img %>"
-                required>
+                required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        </div>
+        
+        <div class="flex mb-4">
+            <div class="flex items-center mr-4">
+                <input id="true" type="radio" value="true" name="status" <%= project?._id ? (project.public ? "checked" : "") : "checked" %> class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="true" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Público</label>
+            </div>
+            <div class="flex items-center mr-4">
+                <input id="false" type="radio" value="false" name="status" <%= project?._id ? (project.public ? "" : "checked") : "" %> class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="false" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Privado</label>
+            </div>
         </div>
 
-        <div>
-            <label for="true">Público</label>
-            <input type="radio" value="true" name="status" id="true" <%= project?._id ? (project.public ? "checked" : "") : "checked" %> >
-            <label for="false">Privado</label>
-            <input type="radio" value="false" name="status" id="false" <%= project?._id ? (project.public ? "" : "checked") : "" %> >
-        </div>
-        <button type="submit"><%= project?._id ? "Editar" : "Crear" %></button>
+        <button type="submit" class="text-white bg-orange-500 hover:bg-orange-800 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-4 dark:bg-orange-600 dark:hover:bg-orange-700 focus:outline-none dark:focus:ring-orange-800 transition-all"><%= project?._id ? "Editar" : "Crear" %></button>
     </form>
 <%- include('../../common/htmlBot') %>

@@ -25,7 +25,7 @@ function saveProject(req, res) {
 
     ProjectsServices.setNewProject(project)
         .then(() => {
-            res.render("common/success", { message: "El proyecto se guardó correctamente. <a href='/projects'>Ver proyectos</a>" })
+            res.render("common/success", { message: "El proyecto se guardó correctamente.", redirect: "/projects", btnText: "Ver proyectos" })
         })
         .catch((err) => {
             console.error(err);
@@ -51,7 +51,7 @@ function deleteProject(req, res) {
 
     ProjectsServices.deleteProjectByID(id)
     .then(() =>{
-        res.render("common/success", { message: "El proyecto se eliminó correctamente. <a href='/projects'>Ver proyectos</a>"})
+        res.render("common/success", { message: "El proyecto se eliminó correctamente.", redirect: "/projects", btnText: "Ver proyectos"})
     })
     .catch((err) => {
         console.error(err);
@@ -83,7 +83,7 @@ function editProject(req, res){
 
     ProjectsServices.setProjectChanges(id, project)
         .then(() =>{
-            res.render("common/success", { message: "El proyecto se editó correctamente. <a href='/projects'>Ver proyectos</a>"})
+            res.render("common/success", { message: "El proyecto se editó correctamente.", redirect: "/projects", btnText: "Ver proyectos"})
         })
         .catch((err) => {
             console.error(err);
